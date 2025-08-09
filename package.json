@@ -8,7 +8,17 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "docker:build": "docker build -t kaffeerad-berlin:latest .",
+    "docker:build-dev": "docker build -f Dockerfile.dev -t kaffeerad-berlin:dev .",
+    "docker:run": "docker run -p 3000:3000 --env-file .env.local kaffeerad-berlin:latest",
+    "docker:run-dev": "docker run -p 3000:3000 -v $(pwd):/app kaffeerad-berlin:dev",
+    "docker:up": "docker-compose up -d",
+    "docker:up-dev": "docker-compose -f docker-compose.dev.yml up",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f kaffeerad-berlin",
+    "docker:shell": "docker exec -it kaffeerad-berlin sh",
+    "docker:clean": "docker system prune -f && docker volume prune -f"
   },
   "keywords": [],
   "author": "",

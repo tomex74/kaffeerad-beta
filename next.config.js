@@ -12,6 +12,8 @@ const nextConfig = {
       },
     ],
   },
+  // Docker optimization
+  output: 'standalone',
   // Performance optimizations
   poweredByHeader: false,
   compress: true,

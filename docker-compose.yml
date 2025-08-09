@@ -1,0 +1,88 @@
+# KaffeeRad Berlin - Docker Compose Configuration
+# Development and production deployment configurations
+
+version: '3.8'
+
+services:
+  # Main application service
+  kaffeerad-berlin:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+    container_name: kaffeerad-berlin
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+      - SITE_URL=https://kaffeerad.berlin
+      # Add your environment variables here
+      - N8N_WEBHOOK_URL=${N8N_WEBHOOK_URL:-https://ct012n8n.grapco.eu/webhook/}
+      - N8N_WEBHOOK_SECRET=${N8N_WEBHOOK_SECRET:-}
+      - EMAIL_FROM=${EMAIL_FROM:-noreply@kaffeerad.berlin}
+      - EMAIL_REPLY_TO=${EMAIL_REPLY_TO:-info@kaffeerad.berlin}
+      # Analytics (optional)
+      - NEXT_PUBLIC_PLAUSIBLE_DOMAIN=${NEXT_PUBLIC_PLAUSIBLE_DOMAIN:-}
+      - NEXT_PUBLIC_PLAUSIBLE_API_HOST=${NEXT_PUBLIC_PLAUSIBLE_API_HOST:-}
+      # Monitoring (optional)
+      - SENTRY_DSN=${SENTRY_DSN:-}
+      - SENTRY_ORG=${SENTRY_ORG:-}
+      - SENTRY_PROJECT=${SENTRY_PROJECT:-}
+    volumes:
+      # Optional: Mount config directory for runtime configuration
+      - ./config:/app/config:ro
+    networks:
+      - kaffeerad-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.kaffeerad.rule=Host(`kaffeerad.berlin`)"
+      - "traefik.http.routers.kaffeerad.tls=true"
+      - "traefik.http.routers.kaffeerad.tls.certresolver=letsencrypt"
+      - "traefik.http.services.kaffeerad.loadbalancer.server.port=3000"
+
+  # Optional: Reverse proxy with SSL termination (Traefik)
+  traefik:
+    image: traefik:v3.0
+    container_name: kaffeerad-traefik
+    restart: unless-stopped
+    profiles:
+      - proxy
+    command:
+      - --api.dashboard=true
+      - --api.insecure=true
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - --entrypoints.web.address=:80
+      - --entrypoints.websecure.address=:443
+      - --certificatesresolvers.letsencrypt.acme.httpchallenge=true
+      - --certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web
+      - --certificatesresolvers.letsencrypt.acme.email=ssl@kaffeerad.berlin
+      - --certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"  # Traefik dashboard
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./letsencrypt:/letsencrypt
+    networks:
+      - kaffeerad-network
+
+networks:
+  kaffeerad-network:
+    driver: bridge
+    name: kaffeerad-network
+
+# Optional volumes for persistent data
+volumes:
+  letsencrypt:
+    driver: local

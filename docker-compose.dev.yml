@@ -1,0 +1,36 @@
+# KaffeeRad Berlin - Development Docker Compose
+# Hot-reload development environment
+
+version: '3.8'
+
+services:
+  # Development service with hot-reload
+  kaffeerad-dev:
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+      target: development
+    container_name: kaffeerad-dev
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+      - SITE_URL=http://localhost:3000
+      - CHOKIDAR_USEPOLLING=true  # For file watching in Docker
+      # Development environment variables
+      - N8N_WEBHOOK_URL=https://ct012n8n.grapco.eu/webhook/
+      - N8N_WEBHOOK_SECRET=dev-secret
+    volumes:
+      # Mount source code for hot-reload
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    networks:
+      - kaffeerad-dev-network
+
+networks:
+  kaffeerad-dev-network:
+    driver: bridge
