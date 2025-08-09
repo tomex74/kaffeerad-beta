@@ -219,3 +219,65 @@ Decision drivers: editorial autonomy vs. complexity, localization needs, and per
 - CMS or MDX-only?
 - Newsletter integration needed?
 - Photography assets availability and rights?
+
+---
+
+### 25) Current Site Inventory & Specs (as of 2025-08-09)
+Source: live scrape saved under `scrape/index.html`. `robots.txt` and `sitemap.xml` both returned 404 at scrape time.
+
+- **Title**: "KAFFEERAD BERLIN – Coffeebike"
+- **Platform**: WordPress (signals: `wp-includes`, `wp-json`, oEmbed, emoji script `ver=6.8.2`)
+- **Theme**: Neve (`wp-theme-neve` classes; footer credit "Neve | WordPress")
+- **Page builder**: Elementor (multiple `elementor-*` assets and widgets)
+- **Notable plugins in markup**:
+  - Addon Elements for Elementor (`addon-elements-for-elementor-page-builder`)
+  - WPForms Lite (`wpforms-lite`), form id `609` present
+  - Font Awesome (v4 shim, v5 all)
+  - Google reCAPTCHA v2 (site key present in DOM)
+
+- **Navigation (anchor links)**:
+  - `Home` → `#home`
+  - `Events` → `#events`
+  - `Angebot` → `#angebot`
+  - `Über mich` → `#aboutme`
+  - Mobile menu mirrors desktop items
+
+- **Key sections/content found**:
+  - Hero/logo and imagery under `#home`
+  - Address and hours block:
+    - Regulärer Standort: Luisenstraße 9, 10117 Berlin (im Hinterhof der Charité – Universitätsmedizin Berlin)
+    - Reguläre Zeiten: Montag–Freitag 9:00–16:00
+    - Bei kälteren Temperaturen: unter 8°C → 10:30–15:30
+    - Wochenenden: Events auf Anfrage via Kontaktformular
+  - `#events` section with event/service highlights and imagery
+  - Testimonial (Naturland, „auf der Grünen Woche“)
+  - Contact form (`#formular`) via WPForms, includes reCAPTCHA v2
+
+- **Contact & legal (from DOM)**:
+  - Telefon: `+49 176 80 60 55 89`
+  - E‑Mail: `hallo@kaffeerad.berlin`
+  - Impressum/Datenschutz presented as modal popups
+  - Company/legal details found in content:
+    - Kaffeerad.berlin — Steffanie Arroyo Carvalho Gastronomie
+    - Schliemannstraße 19, 10437 Berlin
+
+- **Social**:
+  - Instagram: `http://www.instagram.com/kaffeerad.berlin`
+
+- **Assets & media**:
+  - Images under `wp-content/uploads/` (e.g., `2025/05/Event.jpg`, earlier 2023 assets)
+  - Favicon and app icons configured (various sizes)
+
+- **Technical observations / issues**:
+  - No `<meta name="description">` found; no Open Graph tags detected in scrape → add for SEO/social
+  - `robots.txt` and `sitemap.xml` both 404 → configure and serve
+  - Mixed-content/misconfigured asset references: CSS links to `http://devsite.kaffeerad.berlin/...` for Google Fonts local cache → fix to https or bundle locally
+  - Heavy Elementor + multiple plugin assets likely increase CSS/JS payload → refactor to minimal footprint (framework-native, tree-shaken)
+  - reCAPTCHA implies external script load; consider alternatives (honeypot/hCaptcha) and consent gating for GDPR
+
+- **Implications for refactor**:
+  - Map anchors (`#home`, `#events`, `#angebot`, `#aboutme`, `#formular`) to new pages/sections (or routes with hash support)
+  - Preserve address/hours content with improved structure (Schema.org `LocalBusiness`), bilingual strategy TBD
+  - Replace modal-based legal with first-class `Impressum` and `Datenschutz` pages
+  - Add proper metadata, Open Graph, and social preview images
+  - Implement robots/sitemap; set canonical domain and redirects as needed

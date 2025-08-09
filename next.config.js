@@ -12,8 +12,10 @@ const nextConfig = {
       },
     ],
   },
-  // Docker optimization
-  output: 'standalone',
+  // Docker optimization (only for production)
+  ...(process.env.NODE_ENV === 'production' && {
+    output: 'standalone',
+  }),
   // Performance optimizations
   poweredByHeader: false,
   compress: true,

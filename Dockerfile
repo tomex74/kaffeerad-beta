@@ -43,7 +43,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
-# Copy built application
+# Copy public assets
 COPY --from=builder /app/public ./public
 
 # Copy built Next.js files

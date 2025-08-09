@@ -1,203 +1,345 @@
 import Link from 'next/link'
 
-const features = [
+const coffeeExperiences = [
   {
-    icon: '☕',
-    title: 'Premium Kaffeesorten',
-    description: 'Sorgfältig ausgewählte Bohnen von den besten Anbaugebieten der Welt, geröstet für maximalen Geschmack.'
+    title: 'Handverlesene Röstungen',
+    subtitle: 'Vom Bauern zur Bohne',
+    description: 'Unsere Kaffee-Experten reisen persönlich zu den besten Plantagen der Welt. Jede Bohne wird einzeln geprüft, langsam geröstet und mit Leidenschaft perfektioniert.',
+    highlight: 'Single Origin Spezialitäten',
+    visual: 'coffee-beans'
   },
   {
-    icon: '🎪',
-    title: 'Event Catering',
-    description: 'Professioneller Kaffeeservice für alle Anlässe - von intimen Feiern bis zu Firmenevents.'
+    title: 'Unvergessliche Events',
+    subtitle: 'Ihr besonderer Moment',
+    description: 'Verwandeln Sie jeden Anlass in ein sinnliches Kaffeeerlebnis. Von intimen Hochzeiten bis zu Firmenevents - wir kreieren maßgeschneiderte Kaffee-Zeremonien.',
+    highlight: 'Mobile Espresso-Bar',
+    visual: 'barista'
   },
   {
-    icon: '🏙️',
-    title: 'Berlin Mitte',
-    description: 'Im Herzen Berlins gelegen - besuchen Sie uns oder wir kommen zu Ihnen.'
+    title: 'Berlin Authentizität',
+    subtitle: 'Urbane Kaffeekultur',
+    description: 'Mitten im pulsierenden Herzen Berlins entstehen unsere Kreationen. Hier treffen italienische Espresso-Tradition auf Berliner Kreativität und Leidenschaft.',
+    highlight: 'Lokale Kaffee-Community',
+    visual: 'berlin-cafe'
   }
 ]
 
-const testimonials = [
+const customerStories = [
   {
-    name: 'Sarah Weber',
-    role: 'Event Managerin',
-    content: 'KaffeeRad hat unsere Firmenveranstaltung perfekt gemacht. Der Service war exzellent und der Kaffee unvergleichlich.',
+    name: 'Dr. Sarah Weber',
+    role: 'CEO, Tech Startup',
+    content: 'KaffeeRad verwandelte unser Produktlaunch in ein unvergessliches Erlebnis. Unsere Investoren sprechen heute noch von der perfekten Kaffee-Zeremonie.',
+    location: 'Prenzlauer Berg',
+    experience: 'Corporate Event',
     rating: 5
   },
   {
-    name: 'Michael Schmidt',
-    role: 'Privatkundin',
-    content: 'Für unsere Hochzeit haben wir KaffeeRad gebucht - unsere Gäste schwärmen heute noch davon. Absolute Empfehlung!',
+    name: 'Michael & Julia',
+    role: 'Brautpaar 2024',
+    content: 'An unserem Hochzeitstag kreierte KaffeeRad pure Magie. Die persönliche Espresso-Bar war das Highlight - unsere Gäste sind noch immer begeistert.',
+    location: 'Charlottenburg',
+    experience: 'Hochzeit',
     rating: 5
   },
   {
     name: 'Anna Müller',
     role: 'Café Besitzerin',
-    content: 'Die Qualität und Professionalität von KaffeeRad ist beeindruckend. Echte Kaffee-Experten mit Herz.',
+    content: 'Als Café-Inhaberin erkenne ich wahre Kaffee-Leidenschaft. KaffeeRad übertrifft selbst meine höchsten Ansprüche - authentische Berliner Kaffeekultur.',
+    location: 'Kreuzberg',
+    experience: 'B2B Partnership',
     rating: 5
   }
 ]
 
 export default function HomePage() {
   return (
-    <div className="bg-white">
+    <div style={{backgroundColor: '#fffcf8'}}>
       {/* Hero section */}
-      <div className="relative bg-gradient-to-br from-primary-50 via-neutral-50 to-primary-100">
-        <div className="container py-24 sm:py-32 lg:py-40">
-          <div className="mx-auto max-w-4xl text-center">
-            <div className="animate-fade-in">
-              <h1 className="text-5xl font-bold tracking-tight text-neutral-900 sm:text-6xl lg:text-7xl">
-                KaffeeRad
-                <span className="block text-primary-500 mt-2">Berlin</span>
-              </h1>
-              
-              <p className="mt-8 text-xl leading-8 text-neutral-600 sm:text-2xl max-w-3xl mx-auto">
-                Premium Kaffeeerlebnisse in Berlin. Minimal, stilvoll und mit Herz - 
-                für unvergessliche Momente bei jedem Anlass.
-              </p>
-              
-              <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/offerings" className="btn btn-primary px-8 py-4 text-lg font-semibold">
-                  Unsere Angebote entdecken
-                </Link>
-                <Link href="/events" className="btn btn-secondary px-8 py-4 text-lg font-semibold">
-                  Event buchen
-                </Link>
-              </div>
+      <div className="relative min-h-screen hero-coffee-bg flex items-center justify-center overflow-hidden">
+        {/* Coffee steam animation */}
+        <div className="absolute top-20 left-1/4 w-1 h-32 opacity-20">
+          <div className="w-full h-full bg-gradient-to-t from-transparent via-white to-transparent animate-pulse"></div>
+        </div>
+        <div className="absolute top-16 right-1/3 w-1 h-24 opacity-15">
+          <div className="w-full h-full bg-gradient-to-t from-transparent via-white to-transparent animate-pulse" style={{animationDelay: '1s'}}></div>
+        </div>
+        
+        <div className="relative z-10 text-center px-6 sm:px-12">
+          <div className="animate-fade-in">
+            <h1 className="font-serif text-6xl sm:text-8xl lg:text-9xl font-bold text-white leading-tight tracking-tight">
+              KaffeeRad
+              <span className="block text-yellow-400 text-5xl sm:text-7xl lg:text-8xl mt-4 italic">Berlin</span>
+            </h1>
+            
+            <p className="mt-12 text-xl sm:text-2xl lg:text-3xl text-white max-w-4xl mx-auto leading-relaxed font-light">
+              <em>Wo Leidenschaft auf Perfektion trifft</em>
+            </p>
+            
+            <p className="mt-8 text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+              Authentische Berliner Kaffeekultur. Handverlesene Röstungen. Unvergessliche Erlebnisse.
+            </p>
+            
+            <div className="mt-16 flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <Link href="/offerings" className="coffee-button text-xl">
+                Entdecke unsere Welt
+              </Link>
+              <Link href="/events" className="coffee-button-outline text-xl">
+                Event anfragen
+              </Link>
             </div>
           </div>
         </div>
         
-        {/* Decorative elements */}
-        <div className="absolute top-1/4 left-10 w-20 h-20 bg-primary-200 rounded-full opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-10 w-16 h-16 bg-primary-300 rounded-full opacity-30 animate-pulse" style={{animationDelay: '1s'}}></div>
+        {/* Floating coffee beans */}
+        <div className="absolute top-1/4 left-12 w-3 h-4 bg-yellow-500 rounded-full opacity-60 animate-bounce"></div>
+        <div className="absolute bottom-1/3 right-16 w-2 h-3 bg-yellow-400 rounded-full opacity-40 animate-bounce" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/2 right-1/4 w-2 h-3 bg-yellow-600 rounded-full opacity-50 animate-bounce" style={{animationDelay: '1.5s'}}></div>
       </div>
 
-      {/* Features section */}
-      <div className="py-24 sm:py-32">
+      {/* Coffee Experiences section */}
+      <div className="py-32 coffee-texture">
         <div className="container">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
-              Was uns auszeichnet
+          <div className="text-center mb-24">
+            <h2 className="font-serif text-5xl sm:text-6xl font-bold text-amber-900 mb-8">
+              Kaffee ist unsere <em className="text-yellow-600">Kunst</em>
             </h2>
-            <p className="mt-6 text-lg leading-8 text-neutral-600">
-              Drei Säulen, die KaffeeRad Berlin zu Ihrem perfekten Kaffee-Partner machen.
+            <p className="text-xl text-amber-800 max-w-3xl mx-auto leading-relaxed">
+              Jede Tasse erzählt eine Geschichte von Leidenschaft, Handwerkskunst und der endlosen Suche nach dem perfekten Geschmack.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature, index) => (
-              <div key={feature.title} className="card p-8 text-center group hover:shadow-lg transition-shadow duration-300">
-                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {feature.icon}
+          <div className="space-y-32">
+            {coffeeExperiences.map((experience, index) => (
+              <div key={experience.title} className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
+                <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
+                  <div className="inline-block mb-4">
+                    <span className="bg-gold-100 text-gold-800 px-4 py-2 rounded-full text-sm font-semibold tracking-wide">
+                      {experience.highlight}
+                    </span>
+                  </div>
+                  <h3 className="font-display text-4xl sm:text-5xl font-bold text-coffee-800 mb-4">
+                    {experience.title}
+                  </h3>
+                  <p className="text-lg text-gold-700 mb-6 italic">
+                    {experience.subtitle}
+                  </p>
+                  <p className="text-lg text-espresso-600 leading-relaxed mb-8">
+                    {experience.description}
+                  </p>
+                  <Link 
+                    href="/about" 
+                    className="inline-flex items-center text-coffee-700 font-semibold hover:text-coffee-600 transition-colors group"
+                  >
+                    Mehr erfahren 
+                    <span className="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
+                  </Link>
                 </div>
-                <h3 className="text-xl font-semibold text-neutral-900 mb-4">
-                  {feature.title}
-                </h3>
-                <p className="text-neutral-600 leading-7">
-                  {feature.description}
-                </p>
+                
+                <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
+                  <div className="relative">
+                    <div className="coffee-card h-80 flex items-center justify-center bg-gradient-to-br from-coffee-100 to-cream-200 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-coffee-500/20 to-espresso-500/20"></div>
+                      <div className="relative text-center">
+                        <div className="text-6xl mb-4 text-coffee-600">
+                          {experience.visual === 'coffee-beans' && '☕'}
+                          {experience.visual === 'barista' && '👨‍🍳'}
+                          {experience.visual === 'berlin-cafe' && '🏛️'}
+                        </div>
+                        <p className="text-lg font-medium text-coffee-700">
+                          {experience.visual === 'coffee-beans' && 'Premium Röstkunst'}
+                          {experience.visual === 'barista' && 'Meisterhafte Zubereitung'}
+                          {experience.visual === 'berlin-cafe' && 'Berliner Tradition'}
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* Decorative coffee rings */}
+                    <div className="absolute -top-4 -right-4 w-16 h-16 border-4 border-gold-300/30 rounded-full"></div>
+                    <div className="absolute -bottom-4 -left-4 w-12 h-12 border-4 border-coffee-300/30 rounded-full"></div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* About preview section */}
-      <div className="bg-neutral-50 py-24 sm:py-32">
-        <div className="container">
-          <div className="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2 items-center">
-            <div>
-              <h2 className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
-                Unsere Leidenschaft für Kaffee
-              </h2>
-              <p className="mt-6 text-lg leading-8 text-neutral-600">
-                Seit 2020 bringen wir außergewöhnliche Kaffeeerlebnisse nach Berlin. 
-                Was als kleine Leidenschaft begann, ist heute zu einem der angesehensten 
-                Kaffeeanbieter der Stadt geworden.
-              </p>
-              <p className="mt-4 text-lg leading-8 text-neutral-600">
-                Unsere Philosophie ist einfach: Weniger ist mehr. Wir konzentrieren uns auf 
-                das Wesentliche - außergewöhnliche Qualität, minimales Design und warme, 
-                persönliche Verbindungen zu jedem Gast.
-              </p>
-              <div className="mt-8">
-                <Link href="/about" className="btn btn-primary px-6 py-3">
-                  Mehr über uns erfahren
-                </Link>
+      {/* Berlin Heritage section */}
+      <div className="relative bg-espresso-800 py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-espresso-900/50 to-coffee-900/50"></div>
+        <div className="relative container">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="text-center lg:text-left">
+              <div className="inline-block mb-6">
+                <span className="bg-gold-500 text-espresso-900 px-6 py-3 rounded-full text-sm font-bold tracking-wider uppercase">
+                  Seit 2020 in Berlin
+                </span>
               </div>
+              <h2 className="font-display text-5xl sm:text-6xl font-bold text-cream-50 mb-8">
+                Unsere <em className="text-gold-400">Leidenschaft</em> für Kaffee
+              </h2>
+              <p className="text-xl text-cream-200 leading-relaxed mb-8">
+                Was als kleine Leidenschaft in einem Berliner Hinterhof begann, ist heute zu einer der 
+                angesehensten Kaffeeröstereien der Hauptstadt geworden.
+              </p>
+              <p className="text-lg text-cream-300 leading-relaxed mb-10">
+                Unsere Philosophie: Perfektion durch Reduktion. Wir konzentrieren uns auf das 
+                Wesentliche - außergewöhnliche Qualität, authentische Röstkunst und tiefe, 
+                persönliche Verbindungen zu jedem Kunden.
+              </p>
+              <Link href="/about" className="coffee-button text-lg">
+                Unsere Geschichte entdecken
+              </Link>
             </div>
             
             <div className="relative">
-              <div className="bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl p-8 h-80 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-6xl mb-4">📷</div>
-                  <p className="text-lg font-medium text-primary-700">Unser Team bei der Arbeit</p>
-                  <p className="text-sm text-primary-600 mt-2">Leidenschaft in jeder Tasse</p>
+              <div className="relative h-96 rounded-3xl overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-gold-400/20 via-coffee-500/30 to-espresso-600/40"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-8xl mb-6 text-gold-400">🏭</div>
+                    <h3 className="text-2xl font-bold text-cream-50 mb-2">Unsere Rösterei</h3>
+                    <p className="text-lg text-cream-300">Berlin Mitte</p>
+                    <div className="mt-6 flex justify-center space-x-4">
+                      <div className="w-12 h-12 bg-gold-500/30 rounded-full animate-pulse"></div>
+                      <div className="w-8 h-8 bg-coffee-400/40 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                      <div className="w-6 h-6 bg-espresso-300/50 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+                    </div>
+                  </div>
                 </div>
+              </div>
+              
+              {/* Berlin landmarks */}
+              <div className="absolute -top-6 -right-6 w-24 h-24 bg-gold-500/20 rounded-full flex items-center justify-center">
+                <span className="text-3xl">🏛️</span>
+              </div>
+              <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-coffee-500/20 rounded-full flex items-center justify-center">
+                <span className="text-2xl">🌍</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Testimonials section */}
-      <div className="py-24 sm:py-32">
+      {/* Customer Stories section */}
+      <div className="py-32 bg-gradient-to-br from-cream-100 to-cream-200">
         <div className="container">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
-              Was unsere Kunden sagen
+          <div className="text-center mb-20">
+            <h2 className="font-display text-5xl sm:text-6xl font-bold text-coffee-800 mb-8">
+              Geschichten unserer <em className="text-gold-600">Kaffee-Familie</em>
             </h2>
-            <p className="mt-6 text-lg leading-8 text-neutral-600">
-              Erfahrungen, die für sich sprechen - echte Bewertungen unserer zufriedenen Kunden.
+            <p className="text-xl text-espresso-600 max-w-3xl mx-auto leading-relaxed">
+              Echte Menschen. Echte Erlebnisse. Echte Begeisterung für außergewöhnlichen Kaffee.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.name} className="card p-6">
-                <div className="flex mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-neutral-600 mb-6 italic">
-                  &ldquo;{testimonial.content}&rdquo;
-                </p>
-                <div>
-                  <p className="font-semibold text-neutral-900">{testimonial.name}</p>
-                  <p className="text-sm text-neutral-500">{testimonial.role}</p>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            {customerStories.map((story, index) => (
+              <div key={story.name} className="relative group">
+                <div className="coffee-card relative h-full">
+                  {/* Experience badge */}
+                  <div className="absolute -top-4 left-6 z-10">
+                    <div className="bg-gold-500 text-espresso-900 px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase shadow-lg">
+                      {story.experience}
+                    </div>
+                  </div>
+                  
+                  {/* Stars */}
+                  <div className="flex justify-center mb-6 pt-8">
+                    {[...Array(story.rating)].map((_, i) => (
+                      <svg key={i} className="w-6 h-6 text-gold-500 mx-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  
+                  {/* Quote */}
+                  <blockquote className="text-lg text-espresso-700 italic leading-relaxed mb-8 text-center relative">
+                    <span className="text-5xl text-gold-400 absolute -top-2 -left-2 font-serif">&ldquo;</span>
+                    <span className="relative z-10">{story.content}</span>
+                    <span className="text-5xl text-gold-400 absolute -bottom-4 -right-2 font-serif">&rdquo;</span>
+                  </blockquote>
+                  
+                  {/* Author */}
+                  <div className="text-center border-t border-coffee-200 pt-6">
+                    <h4 className="text-xl font-bold text-coffee-800 mb-2">{story.name}</h4>
+                    <p className="text-espresso-600 mb-2">{story.role}</p>
+                    <div className="flex items-center justify-center text-sm text-coffee-500">
+                      <span className="mr-2">📍</span>
+                      <span>{story.location}</span>
+                    </div>
+                  </div>
+                  
+                  {/* Decorative coffee cup */}
+                  <div className="absolute -bottom-3 -right-3 w-8 h-8 bg-coffee-500 rounded-full opacity-20 transform rotate-12"></div>
                 </div>
               </div>
             ))}
           </div>
+          
+          <div className="text-center mt-16">
+            <p className="text-espresso-600 mb-8 text-lg">
+              Werden Sie Teil unserer Kaffee-Community
+            </p>
+            <Link href="/contact" className="coffee-button text-lg">
+              Ihr Event planen
+            </Link>
+          </div>
         </div>
       </div>
 
-      {/* CTA section */}
-      <div className="bg-primary-600">
-        <div className="container py-24 sm:py-32">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Bereit für außergewöhnlichen Kaffee?
-            </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-primary-100">
-              Ob für Ihr nächstes Event oder den täglichen Genuss - kontaktieren Sie uns 
-              und erleben Sie den Unterschied, den echter Qualitätskaffee macht.
-            </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Link href="/contact" className="bg-white px-6 py-3 text-base font-semibold text-primary-600 shadow-sm hover:bg-primary-50 rounded-md transition-colors">
-                Jetzt Kontakt aufnehmen
-              </Link>
-              <Link href="/offerings" className="text-base font-semibold leading-7 text-white hover:text-primary-100 transition-colors">
-                Angebote ansehen <span aria-hidden="true">→</span>
-              </Link>
+      {/* Final CTA section */}
+      <div className="relative hero-coffee-bg py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-t from-espresso-900/80 via-coffee-800/60 to-coffee-700/40"></div>
+          {/* Coffee steam animations */}
+          <div className="absolute top-20 left-1/4 w-2 h-40 bg-gradient-to-t from-transparent via-white/20 to-transparent animate-pulse opacity-30"></div>
+          <div className="absolute top-10 right-1/3 w-1 h-32 bg-gradient-to-t from-transparent via-white/15 to-transparent animate-pulse opacity-20" style={{animationDelay: '2s'}}></div>
+          <div className="absolute bottom-20 left-1/3 w-1 h-28 bg-gradient-to-t from-transparent via-white/10 to-transparent animate-pulse opacity-25" style={{animationDelay: '4s'}}></div>
+        </div>
+        
+        <div className="relative container text-center">
+          <h2 className="font-display text-5xl sm:text-7xl font-bold text-cream-50 mb-8">
+            Bereit für <em className="text-gold-400">pure Kaffee-Leidenschaft</em>?
+          </h2>
+          
+          <p className="text-xl sm:text-2xl text-cream-200 max-w-4xl mx-auto leading-relaxed mb-12">
+            Ob intimes Dinner, Firmen-Event oder Ihre Traumhochzeit - wir kreieren unvergessliche 
+            Kaffee-Erlebnisse, die Ihre Gäste noch Jahre später berühren.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mb-16">
+            <Link href="/contact" className="coffee-button text-xl">
+              🎭 Ihr Event planen
+            </Link>
+            <Link href="/offerings" className="coffee-button-outline text-xl text-cream-50 border-cream-50 hover:bg-cream-50 hover:text-coffee-800">
+              ☕ Unsere Röstungen entdecken
+            </Link>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="text-center">
+              <div className="text-4xl mb-4 text-gold-400">⚡</div>
+              <h3 className="text-lg font-semibold text-cream-100 mb-2">24h Antwortzeit</h3>
+              <p className="text-cream-300">Schnelle, persönliche Beratung</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl mb-4 text-gold-400">🏆</div>
+              <h3 className="text-lg font-semibold text-cream-100 mb-2">Premium Qualität</h3>
+              <p className="text-cream-300">Handverlesene Spezialitäten</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl mb-4 text-gold-400">❤️</div>
+              <h3 className="text-lg font-semibold text-cream-100 mb-2">Mit Leidenschaft</h3>
+              <p className="text-cream-300">Authentische Berliner Tradition</p>
             </div>
           </div>
         </div>
+        
+        {/* Floating elements */}
+        <div className="absolute top-1/4 left-8 w-4 h-5 bg-gold-500/60 rounded-full animate-bounce opacity-70"></div>
+        <div className="absolute bottom-1/4 right-12 w-3 h-4 bg-gold-400/50 rounded-full animate-bounce opacity-60" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 right-1/4 w-2 h-3 bg-gold-600/40 rounded-full animate-bounce opacity-50" style={{animationDelay: '2.5s'}}></div>
       </div>
     </div>
   )
