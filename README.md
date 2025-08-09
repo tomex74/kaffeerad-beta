@@ -76,15 +76,7 @@ CMS_TOKEN=
 
 Add or remove variables as the architecture solidifies.
 
----
 
-### Automations (optional)
-If this project uses n8n for automations, workflows are hosted at your standard instance:
-- [n8n instance](https://ct012n8n.grapco.eu)
-
-Changes to local workflow definitions may auto-update the referenced container depending on your setup. Confirm the exact sync mechanism for this repo and document it here. [[memory:4814328]]
-
----
 
 ### Development Conventions
 - **Type safety**: Prefer strict typings if using TypeScript.
