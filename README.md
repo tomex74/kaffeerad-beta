@@ -2,7 +2,8 @@
 
 A work-in-progress repository for the KaffeeRad Berlin beta. This repo will host the source code, configuration, and documentation for the public-facing site and related services.
 
-> Project status: early beta (structure and content subject to change).
+> Project status: early beta (structure and content subject to change)
+> Last updated: August 2025
 
 ---
 
