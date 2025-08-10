@@ -60,7 +60,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de" className={inter.variable}>
-      <body className="min-h-screen bg-white font-sans antialiased">
+      <body className="min-h-screen font-sans antialiased">
         <div className="relative flex min-h-screen flex-col">
           <Header />
           <main className="flex-1">{children}</main>
