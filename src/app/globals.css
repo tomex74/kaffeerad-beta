@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Roboto:wght@300;400;500;600;700&display=swap');
 
 @import "tailwindcss";
 
 @layer base {
   html {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Roboto', system-ui, sans-serif;
   }
   
   .font-serif {
@@ -12,48 +12,46 @@
   }
   
   body {
-    color: #4a3728;
-    background-color: #faf8f5;
+    color: #333333;
+    background-color: #ffffff;
   }
 }
 
 @layer components {
   .coffee-texture {
-    background-color: #f8f6f3;
+    background-color: #f9f9f9;
     background-image: 
-      radial-gradient(circle at 20% 20%, rgba(159, 128, 101, 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(139, 117, 95, 0.06) 0%, transparent 50%),
-      radial-gradient(circle at 40% 60%, rgba(123, 101, 79, 0.04) 0%, transparent 50%);
+      radial-gradient(circle at 20% 20%, rgba(0, 0, 0, 0.02) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.01) 0%, transparent 50%);
   }
   
   .hero-coffee-bg {
     background: linear-gradient(135deg, 
-      rgba(159, 128, 101, 0.95) 0%, 
-      rgba(139, 117, 95, 0.92) 30%,
-      rgba(123, 101, 79, 0.95) 70%,
-      rgba(101, 82, 65, 0.98) 100%
+      rgba(76, 175, 80, 0.9) 0%, 
+      rgba(67, 160, 71, 0.92) 50%,
+      rgba(56, 142, 60, 0.95) 100%
     );
   }
   
   .coffee-card {
     @apply rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300;
     background-color: #ffffff;
-    border: 1px solid rgba(159, 128, 101, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.08);
   }
   
   .coffee-button {
     @apply text-white px-8 py-4 rounded-lg font-medium tracking-wide shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300;
-    background: linear-gradient(to right, #9f8065, #8b755f);
+    background: linear-gradient(to right, #4CAF50, #45a049);
   }
   
   .coffee-button-outline {
     @apply bg-transparent px-8 py-4 rounded-lg font-medium tracking-wide border-2 hover:text-white transition-all duration-300;
-    color: #9f8065;
-    border-color: #9f8065;
+    color: #4CAF50;
+    border-color: #4CAF50;
   }
   
   .coffee-button-outline:hover {
-    background-color: #9f8065;
+    background-color: #4CAF50;
   }
 }
 
@@ -88,9 +86,9 @@
   }
   
   body {
-    background-color: #faf8f5;
-    color: #4a3728;
-    font-family: var(--font-sans), system-ui, sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    font-family: 'Roboto', system-ui, sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
   
@@ -106,7 +104,7 @@
   h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
     letter-spacing: -0.015em;
-    color: #4a3728;
+    color: #333333;
   }
   
   h1 {
@@ -130,7 +128,7 @@
   p {
     line-height: 1.6;
     margin-bottom: 1rem;
-    color: #6b5b4f;
+    color: #666666;
   }
   
   @media (min-width: 768px) {

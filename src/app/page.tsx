@@ -53,7 +53,7 @@ const customerStories = [
 
 export default function HomePage() {
   return (
-    <div style={{backgroundColor: '#faf8f5'}}>
+    <div style={{backgroundColor: '#ffffff'}}>
       {/* Hero section */}
       <div className="relative min-h-screen hero-coffee-bg flex items-center justify-center overflow-hidden">
         {/* Coffee steam animation */}
@@ -68,7 +68,7 @@ export default function HomePage() {
           <div className="animate-fade-in">
             <h1 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-medium text-white leading-tight tracking-tight">
               KaffeeRad
-              <span className="block text-amber-200 text-4xl sm:text-6xl lg:text-7xl mt-6 font-light">Berlin</span>
+              <span className="block text-yellow-200 text-4xl sm:text-6xl lg:text-7xl mt-6 font-light">Berlin</span>
             </h1>
             
             <div className="mt-16 space-y-6">
@@ -102,10 +102,10 @@ export default function HomePage() {
       <div className="py-24 coffee-texture">
         <div className="container max-w-6xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="font-serif text-4xl sm:text-5xl font-medium text-stone-800 mb-6">
+            <h2 className="font-serif text-4xl sm:text-5xl font-medium text-gray-800 mb-6">
               Kaffee ist unsere Kunst
             </h2>
-            <p className="text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
               Jede Tasse erzählt eine Geschichte von Leidenschaft, Handwerkskunst und der endlosen Suche nach dem perfekten Geschmack.
             </p>
           </div>
@@ -114,26 +114,26 @@ export default function HomePage() {
             {coffeeExperiences.map((experience, index) => (
               <div key={experience.title} className="coffee-card group">
                 <div className="mb-4">
-                  <span className="bg-amber-100 text-amber-800 px-3 py-1 rounded-md text-sm font-medium">
+                  <span className="bg-green-100 text-green-800 px-3 py-1 rounded-md text-sm font-medium">
                     {experience.highlight}
                   </span>
                 </div>
                 
-                <h3 className="font-serif text-2xl font-medium text-stone-800 mb-3">
+                <h3 className="font-serif text-2xl font-medium text-gray-800 mb-3">
                   {experience.title}
                 </h3>
                 
-                <p className="text-amber-700 mb-4 font-medium">
+                <p className="text-green-700 mb-4 font-medium">
                   {experience.subtitle}
                 </p>
                 
-                <p className="text-stone-600 leading-relaxed mb-6">
+                <p className="text-gray-600 leading-relaxed mb-6">
                   {experience.description}
                 </p>
                 
                 <Link 
                   href="/about" 
-                  className="inline-flex items-center text-amber-700 font-medium hover:text-amber-800 transition-colors group"
+                  className="inline-flex items-center text-green-700 font-medium hover:text-green-800 transition-colors group"
                 >
                   Mehr erfahren 
                   <span className="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
@@ -145,24 +145,24 @@ export default function HomePage() {
       </div>
 
       {/* Berlin Heritage section */}
-      <div className="relative bg-stone-800 py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-stone-900/30 to-stone-700/30"></div>
+      <div className="relative bg-gray-800 py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/30 to-gray-700/30"></div>
         <div className="relative container max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
               <div className="inline-block mb-6">
-                <span className="bg-amber-200 text-stone-800 px-4 py-2 rounded-md text-sm font-medium tracking-wide">
+                <span className="bg-green-200 text-gray-800 px-4 py-2 rounded-md text-sm font-medium tracking-wide">
                   Seit 2020 in Berlin
                 </span>
               </div>
               <h2 className="font-serif text-4xl sm:text-5xl font-medium text-white mb-6">
                 Unsere Leidenschaft für Kaffee
               </h2>
-              <p className="text-lg text-stone-200 leading-relaxed mb-6">
+              <p className="text-lg text-gray-200 leading-relaxed mb-6">
                 Was als kleine Leidenschaft in einem Berliner Hinterhof begann, ist heute zu einer der 
                 angesehensten Kaffeeröstereien der Hauptstadt geworden.
               </p>
-              <p className="text-stone-300 leading-relaxed mb-8">
+              <p className="text-gray-300 leading-relaxed mb-8">
                 Unsere Philosophie: Perfektion durch Reduktion. Wir konzentrieren uns auf das 
                 Wesentliche - außergewöhnliche Qualität, authentische Röstkunst und tiefe, 
                 persönliche Verbindungen zu jedem Kunden.
@@ -173,15 +173,15 @@ export default function HomePage() {
             </div>
             
             <div className="relative">
-              <div className="relative h-80 rounded-xl overflow-hidden bg-gradient-to-br from-amber-100 to-amber-200">
+              <div className="relative h-80 rounded-xl overflow-hidden bg-gradient-to-br from-green-100 to-green-200">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
-                    <h3 className="text-2xl font-medium text-stone-800 mb-2">Unsere Rösterei</h3>
-                    <p className="text-lg text-stone-600 mb-8">Berlin Mitte</p>
+                    <h3 className="text-2xl font-medium text-gray-800 mb-2">Unsere Rösterei</h3>
+                    <p className="text-lg text-gray-600 mb-8">Berlin Mitte</p>
                     <div className="flex justify-center space-x-3">
-                      <div className="w-8 h-8 bg-amber-400 rounded-full"></div>
-                      <div className="w-6 h-6 bg-amber-500 rounded-full"></div>
-                      <div className="w-4 h-4 bg-amber-600 rounded-full"></div>
+                      <div className="w-8 h-8 bg-green-400 rounded-full"></div>
+                      <div className="w-6 h-6 bg-green-500 rounded-full"></div>
+                      <div className="w-4 h-4 bg-green-600 rounded-full"></div>
                     </div>
                   </div>
                 </div>
@@ -192,13 +192,13 @@ export default function HomePage() {
       </div>
 
       {/* Customer Stories section */}
-      <div className="py-24 bg-stone-50">
+      <div className="py-24 bg-gray-50">
         <div className="container max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl sm:text-5xl font-medium text-stone-800 mb-6">
+            <h2 className="font-serif text-4xl sm:text-5xl font-medium text-gray-800 mb-6">
               Geschichten unserer Kaffee-Familie
             </h2>
-            <p className="text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
               Echte Menschen. Echte Erlebnisse. Echte Begeisterung für außergewöhnlichen Kaffee.
             </p>
           </div>
@@ -207,7 +207,7 @@ export default function HomePage() {
             {customerStories.map((story, index) => (
               <div key={story.name} className="coffee-card h-full">
                 <div className="mb-4">
-                  <span className="bg-amber-100 text-amber-800 px-3 py-1 rounded-md text-sm font-medium">
+                  <span className="bg-green-100 text-green-800 px-3 py-1 rounded-md text-sm font-medium">
                     {story.experience}
                   </span>
                 </div>
@@ -215,29 +215,29 @@ export default function HomePage() {
                 {/* Stars */}
                 <div className="flex mb-6">
                   {[...Array(story.rating)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                    <svg key={i} className="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
                 </div>
                 
                 {/* Quote */}
-                <blockquote className="text-stone-700 italic leading-relaxed mb-6">
+                <blockquote className="text-gray-700 italic leading-relaxed mb-6">
                   &ldquo;{story.content}&rdquo;
                 </blockquote>
                 
                 {/* Author */}
-                <div className="border-t border-stone-200 pt-4">
-                  <h4 className="font-medium text-stone-800 mb-1">{story.name}</h4>
-                  <p className="text-stone-600 text-sm mb-2">{story.role}</p>
-                  <p className="text-stone-500 text-sm">{story.location}</p>
+                <div className="border-t border-gray-200 pt-4">
+                  <h4 className="font-medium text-gray-800 mb-1">{story.name}</h4>
+                  <p className="text-gray-600 text-sm mb-2">{story.role}</p>
+                  <p className="text-gray-500 text-sm">{story.location}</p>
                 </div>
               </div>
             ))}
           </div>
           
           <div className="text-center mt-12">
-            <p className="text-stone-600 mb-6">
+            <p className="text-gray-600 mb-6">
               Werden Sie Teil unserer Kaffee-Community
             </p>
             <Link href="/contact" className="coffee-button">
