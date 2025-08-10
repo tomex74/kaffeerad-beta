@@ -43,6 +43,9 @@ ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
+# Install runtime tools needed for healthchecks
+RUN apk add --no-cache curl
+
 # Copy public assets
 COPY --from=builder /app/public ./public
 
@@ -61,7 +64,7 @@ EXPOSE 3000
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD curl -f http://localhost:3000/api/health || exit 1
+  CMD curl -fsS http://localhost:3000/api/health || exit 1
 
 # Start the application
 CMD ["node", "server.js"]
